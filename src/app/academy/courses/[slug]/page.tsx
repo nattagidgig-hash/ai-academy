@@ -65,6 +65,10 @@ const courseData: Record<string, {
   },
 };
 
+export function generateStaticParams() {
+  return Object.keys(courseData).map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const course = courseData[slug];
